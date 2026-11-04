@@ -1,45 +1,44 @@
 
 import java.util.Scanner;
 
-public class Main {
+public class InternetPackage {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        // دریافت اطلاعات از کاربر
-        System.out.print("حجم بسته اینترنت را وارد کنید (گیگابایت): ");
-        double volume = Double.parseDouble(input.nextLine());
+        System.out.print("Enter package volume (GB): ");
+        String volumeText = input.nextLine();
 
-        System.out.print("موجودی کیف پول خود را وارد کنید (تومان): ");
-        double balance = Double.parseDouble(input.nextLine());
+        System.out.print("Enter wallet balance (Toman): ");
+        String balanceText = input.nextLine();
 
-        // بررسی معتبر بودن اطلاعات
+        double volume = Double.parseDouble(volumeText);
+        double balance = Double.parseDouble(balanceText);
+
         if (volume <= 0 || balance < 0) {
-            System.out.println("حجم بسته یا موجودی واردشده نامعتبر است.");
+            System.out.println("Invalid package volume or balance!");
         } else {
 
-            // محاسبه قیمت بسته
             double price = volume * 5000;
 
-            // بررسی تخفیف
             if (volume > 10) {
                 price = price * 0.85;
             }
 
-            // بررسی موجودی کیف پول
             if (balance >= price) {
                 double remaining = balance - price;
 
-                System.out.println("خرید با موفقیت انجام شد.");
-                System.out.println("موجودی باقی‌مانده: " + remaining + " تومان");
+                System.out.println("Purchase successful!");
+                System.out.println("Remaining balance: " + remaining + " Toman");
             } else {
                 double shortage = price - balance;
 
-                System.out.println("موجودی کاربر کافی نیست.");
-                System.out.println("مبلغ کسری: " + shortage + " تومان");
+                System.out.println("Insufficient balance!");
+                System.out.println("Shortage amount: " + shortage + " Toman");
             }
         }
 
         input.close();
     }
 }
+
