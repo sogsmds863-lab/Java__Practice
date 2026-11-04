@@ -1,50 +1,52 @@
 
 import java.util.Scanner;
 
-public class Main {
+public class NotificationSettings {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
         boolean notifications = true;
 
-        System.out.println("1. فعال کردن اعلان ها");
-        System.out.println("2. غیرفعال کردن اعلان ها");
-        System.out.println("3. مشاهده وضعیت اعلان ها");
-        System.out.println("4. بازگرداندن تنظیمات پیش فرض");
+        System.out.println("===== Notification Settings =====");
+        System.out.println("1. Enable Notifications");
+        System.out.println("2. Disable Notifications");
+        System.out.println("3. Show Notification Status");
+        System.out.println("4. Restore Default Settings");
 
-        System.out.print("گزینه مورد نظر را وارد کنید: ");
+        System.out.print("Enter your choice: ");
         int choice = input.nextInt();
 
         switch (choice) {
 
             case 1:
                 notifications = true;
-                System.out.println("اعلان ها فعال شدند.");
+                System.out.println("Notifications enabled.");
                 break;
 
             case 2:
                 notifications = false;
-                System.out.println("اعلان ها غیرفعال شدند.");
+                System.out.println("Notifications disabled.");
                 break;
 
             case 3:
-                if (notifications == true) {
-                    System.out.println("وضعیت اعلان ها: فعال");
+                if (notifications) {
+                    System.out.println("Notifications are ON.");
                 } else {
-                    System.out.println("وضعیت اعلان ها: غیرفعال");
+                    System.out.println("Notifications are OFF.");
                 }
                 break;
 
             case 4:
                 notifications = true;
-                System.out.println("تنظیمات به حالت پیش فرض بازگشت.");
+                System.out.println("Default settings restored.");
                 break;
 
             default:
-                System.out.println("گزینه نامعتبر است");
+                System.out.println("Invalid option!");
         }
 
         input.close();
     }
 }
+
