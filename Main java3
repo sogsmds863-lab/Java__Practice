@@ -1,40 +1,39 @@
-
 import java.util.Scanner;
 
-public class Main {
+public class SubscriptionCost {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
         try {
-            System.out.print("هزینه کل اشتراک را وارد کنید: ");
+            System.out.print("Enter total subscription cost: ");
             String costText = input.nextLine();
 
-            System.out.print("تعداد افراد را وارد کنید: ");
+            System.out.print("Enter number of people: ");
             String peopleText = input.nextLine();
 
             double cost = Double.parseDouble(costText);
             int people = Integer.parseInt(peopleText);
 
             if (cost < 0) {
-                System.out.println("هزینه نمی‌تواند منفی باشد");
-            } 
+                System.out.println("Cost cannot be negative.");
+            }
             else if (people < 0) {
-                System.out.println("تعداد افراد نمی‌تواند منفی باشد");
-            } 
+                System.out.println("Number of people cannot be negative.");
+            }
             else if (people == 0) {
-                System.out.println("تعداد افراد نمی‌تواند صفر باشد");
-            } 
+                System.out.println("Number of people cannot be zero.");
+            }
             else {
                 double share = cost / people;
-                System.out.println("سهم هر نفر: " + share);
+
+                System.out.println("Each person's share: " + share);
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("ورودی نامعتبر است");
+            System.out.println("Invalid input!");
         }
 
         input.close();
     }
 }
-
